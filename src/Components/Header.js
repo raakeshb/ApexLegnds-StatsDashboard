@@ -9,7 +9,7 @@ const Header = () => {
 const hist = useHistory();
 const useStyles = makeStyles({
 
-    heading:{'fontFamily':'Aldrich,sans-serif','float':'left','marginTop':'3%'},
+    heading:{'fontFamily':'Aldrich,sans-serif','float':'left','marginTop':'3%','marginLeft':'20px'},
     names:{'fontFamily':'Aldrich,sans-serif',
             'color':'#DC143C',
           'fontSize':'64px',
@@ -21,6 +21,13 @@ function Buttstlye(){
   const classes = useStyles();
   return <Button className={classes.heading} color='primary'variant="contained" size='large' onClick={()=>{hist.push("/")}} >Home</Button>
 }
+
+function ButtLegends(){
+  const classes = useStyles();
+  return <Button className={classes.heading} color='primary'variant="contained" size='large' onClick={()=>{hist.push("/legends")}} >Legends</Button>
+}
+
+
 function Stylesheading(){
   const classes = useStyles();
   return <Typography className={classes.names} color='primary'  size='large'>Apex Legends</Typography>
@@ -32,6 +39,7 @@ function Stylesheading(){
         <AppBar className = "ww" position="static"  >
       <Container maxWidth="md">
         <Buttstlye></Buttstlye>
+        <ButtLegends></ButtLegends>
         <Toolbar>
          <Stylesheading></Stylesheading>
         </Toolbar>

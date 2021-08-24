@@ -1,6 +1,7 @@
 import Homepage from './Homepage';
 import Header from './Header';
 import Display from './Display';
+import Legends from './Legends';
 import '../App.css';
 import {useState} from 'react'
 import {
@@ -11,9 +12,9 @@ import {
 import apexContext from '../Context/Apex';
 
 function App() {
-  const [legendsdata,setLegends]= useState({"":""})
+  const [legendsdata,setLegends]= useState({"data":"loading"})
   const [force,setForce]= useState("");
-  const [legendsarray, setLegendsarray] = useState({});
+  const [legendsarray, setLegendsarray] = useState({"data":"loading"});
   const [platform,setPlatform] = useState("Platform");
   const [username,setusername] = useState("");
  
@@ -23,7 +24,7 @@ function App() {
 
   
   return (
-  <apexContext.Provider value={{legendsdata,setLegends,force,setForce,platform,setPlatform,username,setusername}}>
+  <apexContext.Provider value={{legendsdata,setLegends,force,setForce,platform,setPlatform,username,setusername,legendsarray, setLegendsarray}}>
     <Router>
          <Switch>
             <Route exact path="/">
@@ -33,6 +34,10 @@ function App() {
             <Route exact path="/display">
               <Header></Header>
               <Display/>
+            </Route>
+            <Route exact path="/legends">
+              <Header></Header>
+              <Legends></Legends>
             </Route>
          </Switch>
     </Router>

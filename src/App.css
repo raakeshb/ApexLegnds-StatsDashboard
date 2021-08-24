@@ -129,4 +129,11 @@ div.Platform-box{
     
   }
   
+  .grid-container-legend {
+    display: grid;
+    grid-template-columns: auto auto auto  ;
+    padding: 10px;
+    
+  }
+  
  
