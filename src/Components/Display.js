@@ -13,17 +13,22 @@ const Display = () => {
         fetch(`https://api.mozambiquehe.re/bridge?version=5&platform=${platform}&player=${username}&auth=qvfFPLGYUIjaBYWYwslX`)
             .then(response => response.json())
             .then(response => {
-                setLegends(response);
-                setGlobal(response.global);
-                setGamename(response.global.name);
-                setLevel(response.global.level);
-                setRank(response.global.rank);
-                setArena(response.global.arena);
-                setLegendsarray(response.legends.all);
+                if(!response.Error)
+                {
+
+                  setLegends(response);
+                  setGlobal(response.global);
+                  setGamename(response.global.name);
+                  setLevel(response.global.level);
+                  setRank(response.global.rank);
+                  setArena(response.global.arena);
+                  setLegendsarray(response.legends.all);}
             })
     },[]);
     return (
-        <div style={{fontFamily:'Aldrich,sans-serif',marginLeft:'23%'}}>
+      <>
+      
+       { gamename !== "Loading Data"  ? <div style={{fontFamily:'Aldrich,sans-serif',marginLeft:'23%'}}>
         <div className="grid-container">
         <div className="grid-item">BR:Rank</div>
   <div className="grid-item"><img src={rank.rankImg} alt="Rank"></img></div>
@@ -44,7 +49,7 @@ const Display = () => {
   <div className="grid-item">Score: {arena.rankScore}</div>
   <div className="grid-item">Split: {arena.rankedSeason}</div>   
   </div>
-</div>
+</div>: <h1>We Got No Information In our Database</h1>}</>
     )
 }
 
